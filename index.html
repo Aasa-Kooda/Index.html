@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #fdf3e8;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      color: #d17b88;
+      font-size: 2rem;
+      margin-top: 20px;
+    }
+    #hint {
+      color: #96705b;
+      font-size: 0.8rem;
+    }
+    #cake {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(to top, #e29e84, #ffdbc5);
+      margin: 20px auto;
+      position: relative;
+      border-radius: 10px;
+      transform: rotateX(25deg) rotateY(-25deg);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    .candle {
+      position: absolute;
+      width: 10px;
+      height: 40px;
+      background-color: #ffd700;
+      top: -40px;
+      left: calc(50% - 5px);
+      border-radius: 5px;
+      animation: flicker 0.6s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    #message {
+      display: none;
+      font-size: 1.8rem;
+      color: #d17b88;
+      margin: 20px;
+      animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .gift-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gift-container span {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+    .gift-box {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(to bottom, #e6a962, #d29e5a);
+      position: relative;
+      transform: rotateX(20deg) rotateY(20deg);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    .gift-box:before {
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 10px;
+      background: #c47f44;
+      top: 45%;
+      left: 10%;
+    }
+    .gift-box:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 80%;
+      background: #c47f44;
+      top: 10%;
+      left: 45%;
+    }
+    .cloud {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .cloud:before,
+    .cloud:after {
+      content: '';
+      position: absolute;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+    .cloud:before {
+      width: 60px;
+      height: 60px;
+      top: -20px;
+      left: 10px;
+    }
+    .cloud:after {
+      width: 80px;
+      height: 80px;
+      top: -40px;
+      right: 10px;
+    }
+    #cloud-top-left {
+      left: -50px;
+      top: 30%; /* Slightly lowered */
+    }
+    #cloud-top-right {
+      right: -50px;
+      top: 30%; /* Slightly lowered */
+    }
+    #cloud-bottom-left {
+      left: -50px;
+      bottom: 30%;
+    }
+    #cloud-bottom-right {
+      right: -50px;
+      bottom: 30%;
+    }
+    #gift-hint {
+      color: #96705b;
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+    .vintage-note {
+      background-color: #f8e1c4;
+      color: #6b4a2e;
+      font-family: "Courier New", monospace;
+      border: 2px solid #d0a875;
+      padding: 20px;
+      margin: 30px auto;
+      width: 80%;
+      text-align: center;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .vintage-note::before,
+    .vintage-note::after {
+      content: "🌷";
+      font-size: 1.2rem;
+      position: absolute;
+    }
+    .vintage-note::before {
+      top: 5px;
+      left: 5px;
+    }
+    .vintage-note::after {
+      bottom: 5px;
+      right: 5px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      color: #96705b;
+      font-size: 1rem;
+      font-family: "Courier New", monospace;
+    }
+    .balloon {
+      position: absolute;
+      width: 30px;
+      height: 50px;
+      background: radial-gradient(circle, #ff6666, #cc0000);
+      border-radius: 50%;
+      animation: float 3s ease-in-out forwards;
+    }
+    .balloon:nth-child(2) {
+      background: radial-gradient(circle, #66ccff, #0066cc);
+    }
+    .balloon:nth-child(3) {
+      background: radial-gradient(circle, #66ff66, #009933);
+    }
+    .balloon-string {
+      position: absolute;
+      width: 2px;
+      height: 50px;
+      background-color: #000;
+      bottom: -50px;
+      left: calc(50% - 1px);
+    }
+    @keyframes float {
+      from {
+        bottom: 50px;
+        opacity: 1;
+      }
+      to {
+        bottom: 300px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>(🌺•€.€•)//////</h1>
+  <div id="cake">
+    <div class="candle"></div>
+  </div>
+  <p id="hint">CLICK THE CAKE TO REVEAL THE MESSAGE KOODA G!! <33333</p>
+  <p id="message">💗👻💗~!!!HÃPPŶ BÍRTH DĀŸ MŶ PÅRÌÎĮ!!!~💗👻💗</p>
+  <div class="gift-container">
+    <span>(🌸=*^_^*=)></span>
+    <div class="gift-box" onclick="releaseBalloons()"></div>
+  </div>
+  <p id="gift-hint">CLICK THE GIFT TO SEE THE SURPRISE JO KHARAB HOGAYA BUT KOI NAHI HEHEHE⬆️💕</p>
+  <div class="vintage-note">
+🌷🌷🌷!!!!!HAPPYYY BIRTHDAYYY KOODA G!!!!!🌷🌷🌷 I HOPE U HAVE A WONDERFUL BIRTHDAY AND A WONDERFUL LIFE AHEAD!! I HOPE U ARE TAKING CARE OF URSELF!! I MISS YOU MI AMOR<♥️3...WELL, HTML KAAM AA GAYA HEHEHE AND I WASN'T REALLY SURE ON WHAT I SHOULD WRITE ON THIS NOTE SO I WROTE A POEM FOR U NO JUDGING OKEY HEHEHE [🎀'>~<'] 
+EVERYTHING HAPPENED UNEXPECTEDLY-BUT ON MY LIFE IT ACTED AFFECTIVELY-MANY OF THE TIMES I DIDN’T EVEN KNOW WHAT WAS HAPPENING-BUT I CHERISH AND LOVE ALL THE HAPPENINGS -- I REALLY WANT U HERE WITH ME-BUT THAT’S NOT REALLY POSSIBLE IT SEEMS-I MISS U MORE AND MORE EVERYDAY-BECAUSE EVERYTHING REMINDS ME OF U IN EVERY WAY -- I HONESTLY DON’T KNOW WHAT I AM WRITING-I AM JUST TRYING TO MAKE IT ALL RHYMING-I HOPE AS U READ THIS U ARE SMILING-AND I HOPE THAT THIS POEM IS TO UR LIKING -- I AM THANKFUL TO U FOR ALL THAT U HAVE DONE-U EXIST IN MY WORLD LIKE NO ONE ELSE DOES-U ARE SO IMPORTANT AND CLOSE TO MY HEART-AND U DESERVE ALL THE BEST THINGS THAT THIS WORLD’S GOT-- MY PARI I HOPE U KNOW HOW WORTHY U ARE-AND THAT I AM PROUD OF U FOR MAKING IT THIS FAR-ALL THE MEMORIES THAT MAKE ME SMILE-ARE THE MEMORIES THAT I HAVE OF U AND I -- THERE IS NEVER A TIME U ARE NOT ON MY MIND-U ARE SO GENUINE, SWEET AND KIND-I WILL ALWAYS WAIT FOR U I PROMISE-BUT FOR NOW I SADLY HAVE TO SAY GOODBYE... :(:
+    <div class="footer">~AASA^^</div>
+  </div>
+  
+  <!-- Balloons will spawn next to the gift box -->
+  <div id="balloons-container" style="position: absolute; top: 200px; left: 200px;"></div>
+
+  <div id="cloud-top-left" class="cloud"></div>
+  <div id="cloud-top-right" class="cloud"></div>
+  <div id="cloud-bottom-left" class="cloud"></div>
+  <div id="cloud-bottom-right" class="cloud"></div>
+
+  <script>
+    const cake = document.getElementById("cake");
+    const message = document.getElementById("message");
+
+    cake.addEventListener("click", () => {
+      message.style.display = "block";
+    });
+
+    function releaseBalloons() {
+      const balloonsContainer = document.getElementById("balloons-container");
+      const colors = ['#ff6666', '#66ccff', '#66ff66'];
+      for (let i = 0; i < 3; i++) {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        balloon.style.left = `${i * 40}px`;
+
+        const string = document.createElement('div');
+        string.className = 'balloon-string';
+        balloon.appendChild(string);
+
+        balloonsContainer.appendChild(balloon);
+
+        setTimeout(() => {
+          balloon.remove();
+        }, 3000);
+      }
+    }
+  </script>
+</body>
+</html>
